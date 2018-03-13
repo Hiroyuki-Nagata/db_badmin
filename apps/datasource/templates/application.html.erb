@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Datasource</title>
-    <%= favicon %>
   </head>
   <body>
+    <p>Can you response for me ? <%= tes() %></p>
+    <p>Webpack script file name: <%= script_for('main') %></p>
     <%= yield %>
+    <script type="text/javascript" src="<%= script_for('main') %>" charset="utf-8"></script>
   </body>
 </html>

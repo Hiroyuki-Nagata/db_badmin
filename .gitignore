@@ -3,3 +3,11 @@
 /public/assets*
 /tmp
 *.log
+
+# webpack
+/apps/*/node_modules
+/apps/*/webpack-assets.json
+/public/bundle*
+
+# yarn
+yarn.lock
