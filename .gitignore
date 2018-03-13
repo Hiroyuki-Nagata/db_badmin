@@ -1,0 +1,5 @@
+# hanami
+/db/*.sqlite
+/public/assets*
+/tmp
+*.log

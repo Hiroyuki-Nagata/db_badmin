@@ -1,0 +1,3 @@
+project=db_badmin
+test=minitest
+template=erb
