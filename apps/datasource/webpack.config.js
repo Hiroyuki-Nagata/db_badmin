@@ -8,5 +8,10 @@ module.exports = {
         path: path.resolve(__dirname, '..', '..', 'public'),
         filename: 'bundle_web-[hash].js'
     },
-    plugins: [new assetsPlugin()]
+    plugins: [new assetsPlugin()],
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
+    }
 };
