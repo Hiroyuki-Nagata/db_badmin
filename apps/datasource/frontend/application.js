@@ -7,7 +7,7 @@ $('#hello').after('hello webpack');
 // Vue.jsのテスト
 var Vue = require('vue');
 
-var vm = new Vue({
+var app = new Vue({
     el: '#app',
     data: {
         message: "Hello Vue.js !!"

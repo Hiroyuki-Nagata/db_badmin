@@ -11,7 +11,8 @@ module.exports = {
     plugins: [new assetsPlugin()],
     resolve: {
         alias: {
-            vue: 'vue/dist/vue.js'
+            vue: 'vue/dist/vue.js',
+            vuex: 'vuex/dist/vuex.js',
         }
     }
 };
