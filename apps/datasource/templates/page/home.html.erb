@@ -7,3 +7,24 @@
 <div id="app">
   {{ message }}
 </div>
+
+<h2>簡単なVue.jsのアプリ</h2>
+
+<li><a href="http://design.dena.com/engineering/vue-js%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8Bmvvm%E5%85%A5%E9%96%80/">Vue.jsではじめるMVVM入門</a></li>
+
+<div id="my-app">
+  <p>
+    NewTask:
+    <input type="text" v-model="newTask" />
+    <button v-on:click="addTodo">Add</button>
+  </p>
+  <hr />
+  <ul>
+    <li v-for="todo in todos">
+      <input type="checkbox" v-model="todo.isCompleted" />
+      <span v-bind:class="{ 'complete': todo.isCompleted }">{{ todo.task }}</span>
+      <button v-on:click="deleteTodo(todo)">Delete</button>
+    </li>
+  </ul>
+  <p>Remaining Tasks: {{ remains }}/{{ todos.length }}</p>
+</div>

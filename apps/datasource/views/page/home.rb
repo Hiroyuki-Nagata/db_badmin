@@ -15,7 +15,6 @@ module Datasource::Views::Page
       path = Datasource::Application.configuration.root.join('webpack-assets.json')
       file = File.read(path)
       json = JSON.parse(file)
-      p json
       json[bundle]['js']
     end
   end
