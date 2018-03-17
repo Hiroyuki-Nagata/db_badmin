@@ -8,6 +8,17 @@ module.exports = {
         path: path.resolve(__dirname, '..', '..', 'public'),
         filename: 'bundle_web-[hash].js'
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
+        ]
+    },
     plugins: [new assetsPlugin()],
     resolve: {
         alias: {
