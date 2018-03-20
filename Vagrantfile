@@ -1,7 +1,10 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "mvbcoding/awslinux"
   config.vm.box_version = "2017.03.0.20170401"
-  config.vm.network "forwarded_port", guest: 80, host: 2300
+  config.vm.network "forwarded_port", guest: 80, host: 80
+
+  # reverse proxy
+  config.vm.provision "file", source: "badmin.conf", destination: "/home/vagrant/badmin.conf"
 
   # deploy codes
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
@@ -76,5 +79,11 @@ Vagrant.configure("2") do |config|
     sudo npm install webpack -g
     sudo npm install webpack-cli -g
     cd $CLONE_TO/apps/datasource && yarn && yarn run webpack
+
+    # reverse proxy
+    sudo mv -f /home/vagrant/badmin.conf /etc/httpd/conf.d/badmin.conf
+    sudo yum -y install httpd
+    sudo service httpd restart
+    cd $CLONE_TO && bundle exec hanami s &
 SHELL
 end

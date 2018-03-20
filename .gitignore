@@ -11,3 +11,6 @@
 
 # yarn
 yarn.lock
+
+# vagrant
+.vagrant
