@@ -8,6 +8,8 @@
 - Controllers/Viewのファイルをそれぞれ編集
 - Modelを作成
 - migrationファイルを改変する(DBのテーブルを定義)
+- migration実行
+
 
 ```
 // Action作成

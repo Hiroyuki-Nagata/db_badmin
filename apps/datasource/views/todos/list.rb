@@ -4,7 +4,7 @@ module Datasource::Views::Todos
     layout false
 
     def render
-      "[]"
+      _raw JSON.dump(todos.map{|todo| todo.to_h})
     end
   end
 end
