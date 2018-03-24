@@ -6,12 +6,7 @@ module Datasource::Controllers::Todos
     expose :todos
 
     def call(params)
-      #@todos = TodoRepository.new.all
-      @todos = [
-        { task: '牛乳を買う', isCompleted: false },
-        { task: 'プロテインを買う', isCompleted: true },
-        { task: 'スポーツドリンクを買う', isCompleted: false }
-      ]
+      @todos = TodoRepository.new.all
     end
   end
 end

@@ -30,12 +30,6 @@ new Vue({
         todos: []
     },
     methods: {
-        getAjax: function(url, name) {
-            return Axios.get(url).then((res) => {
-                Vue.set(this, name, res.data);
-                this.$emit('GET_AJAX_COMPLETE');
-            });
-        },
         getData: function(name) {
             return this.$data[name];
         },
@@ -44,6 +38,15 @@ new Vue({
             this.todos.push(
                 { task: this.newTask, isCompleted: false }
             );
+            // 要素をバックエンドに送る
+            Axios.post("/todos",{
+                task: this.newTask,
+                isCompleted: false
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
             this.newTask = '';
         },
         deleteTodo: function(todo) {

@@ -32,6 +32,14 @@ $ bundle exec hanami db create
 $ bundle exec hanami db migrate
 ```
 
+## Memo(HanamiのHTTPメソッド)
+
+* [Guides / 1.0 / Command Line / Command Line: Generators](http://hanamirb.org/guides/command-line/generators/)
+
+- create, which will use POST
+- update, which will use PATCH
+- destroy, which will use DELETE
+
 ## Memo(Yarnの使い方)
 
 ```
