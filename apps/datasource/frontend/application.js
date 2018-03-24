@@ -52,23 +52,21 @@ new Vue({
         }
     },
     created: function() {
+        Axios.get("/todos").then((res) => {
+            //Vue.set(this, name, res.data);
+            console.log(res);
+            this.$emit('GET_AJAX_COMPLETE');
+        });
+        // this.$on('GET_AJAX_COMPLETE', () => {
+        //     this.todos = this.getData('todos');
+        // });
         // 要素の初期値を 'created' で設定
         Vue.set(this, 'todos', [
             { task: '牛乳を買う', isCompleted: false },
             { task: 'プロテインを買う', isCompleted: true },
             { task: 'スポーツドリンクを買う', isCompleted: false }
         ]);
-    //    remains: function() {
-    //        Vue.set(this, 'todos', [{ task: 'XXX', isCompleted: false }]);
-    //    }
-    //    //Vue.set(this, 'todos', []);
-    //    //Axios.get(url).then((res) => {
-    //    //    Vue.set(this, name, res.data);
-    //    //    this.$emit('GET_AJAX_COMPLETE');
-    //    //});
-    //    //this.$on('GET_AJAX_COMPLETE', () => {
-    //    //    this.todos = this.getData('todos');
-    //    //});
+
     },
     computed: {
         remains: function() {
