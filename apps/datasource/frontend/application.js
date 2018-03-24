@@ -13,6 +13,9 @@ Vue.use(BootstrapVue);
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+// Axios
+import Axios from 'axios';
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -24,13 +27,18 @@ new Vue({
     el: '#my-app',
     data: {
         newTask: '',
-        todos: [
-            { task: '牛乳を買う', isCompleted: false },
-            { task: 'プロテインを買う', isCompleted: true },
-            { task: 'スポーツドリンクを買う', isCompleted: false }
-        ]
+        todos: []
     },
     methods: {
+        getAjax: function(url, name) {
+            return Axios.get(url).then((res) => {
+                Vue.set(this, name, res.data);
+                this.$emit('GET_AJAX_COMPLETE');
+            });
+        },
+        getData: function(name) {
+            return this.$data[name];
+        },
         addTodo: function() {
             if( this.newTask == '' ) return;
             this.todos.push(
@@ -42,6 +50,25 @@ new Vue({
             this.todos.splice(todo, 1); // vue.js v2
             //this.todos.$remove(todo); // vue.js v1
         }
+    },
+    created: function() {
+        // 要素の初期値を 'created' で設定
+        Vue.set(this, 'todos', [
+            { task: '牛乳を買う', isCompleted: false },
+            { task: 'プロテインを買う', isCompleted: true },
+            { task: 'スポーツドリンクを買う', isCompleted: false }
+        ]);
+    //    remains: function() {
+    //        Vue.set(this, 'todos', [{ task: 'XXX', isCompleted: false }]);
+    //    }
+    //    //Vue.set(this, 'todos', []);
+    //    //Axios.get(url).then((res) => {
+    //    //    Vue.set(this, name, res.data);
+    //    //    this.$emit('GET_AJAX_COMPLETE');
+    //    //});
+    //    //this.$on('GET_AJAX_COMPLETE', () => {
+    //    //    this.todos = this.getData('todos');
+    //    //});
     },
     computed: {
         remains: function() {
