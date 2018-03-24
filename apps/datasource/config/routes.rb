@@ -6,3 +6,4 @@
 get '/home', to: 'page#home'
 get '/todos', to: 'todos#list'
 post '/todos', to: 'todos#create'
+delete '/todos/:id', to: 'todos#destroy'

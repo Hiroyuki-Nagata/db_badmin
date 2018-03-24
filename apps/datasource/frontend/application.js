@@ -35,22 +35,32 @@ new Vue({
         },
         addTodo: function() {
             if( this.newTask == '' ) return;
-            this.todos.push(
-                { task: this.newTask, isCompleted: false }
-            );
             // 要素をバックエンドに送る
             Axios.post("/todos",{
                 task: this.newTask,
                 isCompleted: false
             }).then(function (response) {
+                // 成功したらHTML要素を追加
                 console.log(response);
             }).catch(function (error) {
                 console.log(error);
             });
+            this.todos.push(
+                { task: this.newTask, isCompleted: false }
+            );
             this.newTask = '';
         },
-        deleteTodo: function(todo) {
-            this.todos.splice(todo, 1); // vue.js v2
+        deleteTodo: function(todo, index) {
+            // 削除する情報をバックエンドに送る
+            Axios.delete(`/todos/${todo.todo_no}`, {
+                // nothing to send (because of it's delete)
+            }).then(function (response) {
+                // 成功したらHTML要素を削除
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+            this.todos.splice(index, 1); // vue.js v2
             //this.todos.$remove(todo); // vue.js v1
         }
     },

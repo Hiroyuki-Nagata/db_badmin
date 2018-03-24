@@ -20,10 +20,10 @@
   </p>
   <hr />
   <ul>
-    <li v-for="todo in todos">
+    <li v-for="(todo, index) in todos">
       <input type="checkbox" v-model="todo.isCompleted" />
       <span v-bind:class="{ 'complete': todo.isCompleted }">{{ todo.task }}</span>
-      <button v-on:click="deleteTodo(todo)">Delete</button>
+      <button v-on:click="deleteTodo(todo,index)">Delete</button>
     </li>
   </ul>
   <p>Remaining Tasks: {{ remains }}/{{ todos.length }}</p>
