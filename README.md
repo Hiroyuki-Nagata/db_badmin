@@ -1,12 +1,13 @@
 # Db Badmin
 
-Welcome to your new Hanami project!
+Excelファイルなどを読み取りするためのアプリサーバ
 
 ## Setup
 
 開発用アプリサーバの起動方法:
 
 ```
-$ cd db_badmin/apps/datasource/ && yarn run webpack
-$ cd db_badmin/ && bundle exec hanami server
+$ rake build_run_server  # Run webpack & run app server for testing
+$ rake run_server        # Run app server for testing
+$ rake run_webpack       # Run webpack for build
 ```
