@@ -1,20 +1,23 @@
 {
-  "name": "datasource",
-  "version": "1.0.0",
-  "main": "./apps/datasource/frontend/application.js",
-  "author": "Hiroyuki Nagata",
-  "license": "MIT",
-  "devDependencies": {
-    "assets-webpack-plugin": "^3.5.1",
-    "axios": "^0.18.0",
-    "bootstrap-vue": "^2.0.0-rc.2",
-    "css-loader": "^0.28.11",
-    "style-loader": "^0.20.3",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.11"
-  },
-  "dependencies": {
-    "jquery": "^3.3.1",
-    "vue": "^2.5.15"
-  }
+    "name": "datasource",
+    "version": "1.0.0",
+    "main": "./apps/datasource/frontend/application.js",
+    "author": "Hiroyuki Nagata",
+    "license": "MIT",
+    "devDependencies": {
+        "assets-webpack-plugin": "^3.5.1",
+        "axios": "^0.18.0",
+        "bootstrap-vue": "^2.0.0-rc.2",
+        "css-loader": "^0.28.11",
+        "style-loader": "^0.20.3",
+        "webpack": "^4.1.1",
+        "webpack-cli": "^2.0.11"
+    },
+    "dependencies": {
+        "jquery": "^3.3.1",
+        "vue": "^2.5.15"
+    },
+    "scripts": {
+        "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
+    }
 }
