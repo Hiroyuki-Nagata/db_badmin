@@ -1,5 +1,4 @@
 require 'hanami/helpers'
-#require 'hanami/assets'
 
 module Datasource
   class Application < Hanami::Application
