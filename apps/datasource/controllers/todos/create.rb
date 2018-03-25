@@ -9,7 +9,7 @@ module Datasource::Controllers::Todos
       if request.post?
         repository = TodoRepository.new
         @json = JSON.parse(request.body.read)
-        @todo = repository.create(task: @json['task'], is_completed: @json['isCompleted'])
+        @todo = repository.create(task: @json['task'], is_completed: @json['isCompleted'] ? 1 : 0)
       end
     end
   end
