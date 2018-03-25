@@ -12,7 +12,7 @@ module Datasource::Views::Page
 
     def script_for(bundle)
       # webpackの場所を示す
-      path = Datasource::Application.configuration.root.join('webpack-assets.json')
+      path = Hanami.root.join('webpack-assets.json')
       file = File.read(path)
       json = JSON.parse(file)
       json[bundle]['js']

@@ -5,8 +5,8 @@
 *.log
 
 # webpack
-/apps/*/node_modules
-/apps/*/webpack-assets.json
+node_modules
+webpack-assets.json
 /public/bundle*
 
 # yarn
