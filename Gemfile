@@ -6,7 +6,9 @@ gem 'rake'
 gem 'hanami',       '~> 1.1'
 gem 'hanami-model', '~> 1.1'
 
-gem 'sqlite3', groups: %w(test development), require: false
+gem 'sequel'
+gem 'pg'
+#gem 'sqlite3', groups: %w(test development), require: false
 
 group :development do
   # Code reloading
